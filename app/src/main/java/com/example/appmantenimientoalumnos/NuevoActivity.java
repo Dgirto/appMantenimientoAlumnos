@@ -13,7 +13,8 @@ import com.example.appmantenimientoalumnos.db.Dbalumno;
 public class NuevoActivity extends AppCompatActivity {
 
     // Asignar nuestras variables
-    private EditText txtnombre, txtTelefono, txtCorreoElectronico;
+    private EditText txtNombre, txtApellido, txtTelefono, txtCorreoElectronico, txtDireccion,
+            txtFechaNacimiento, txtDni, txtCarrera, txtCiclo, txtEstado;
     private Button btnGuarda;
 
     @Override
@@ -22,9 +23,16 @@ public class NuevoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_nuevo);
 
         // añadiendo las variables los elementos de la vista.
-        txtnombre = findViewById(R.id.txtNombre);
+        txtNombre = findViewById(R.id.txtNombre);
+        txtApellido = findViewById(R.id.txtApellido);
         txtTelefono = findViewById(R.id.txtTelefono);
         txtCorreoElectronico = findViewById(R.id.txtCorreoElectronico);
+        txtDireccion = findViewById(R.id.txtDireccion);
+        txtFechaNacimiento = findViewById(R.id.txtFechaNacimiento);
+        txtDni = findViewById(R.id.txtDni);
+        txtCarrera = findViewById(R.id.txtCarrera);
+        txtCiclo = findViewById(R.id.txtCiclo);
+        txtEstado = findViewById(R.id.txtEstado);
         btnGuarda = findViewById(R.id.btnGuarda);
 
         btnGuarda.setOnClickListener(new View.OnClickListener() {
@@ -33,9 +41,16 @@ public class NuevoActivity extends AppCompatActivity {
                 Dbalumno dbalumno = new Dbalumno(NuevoActivity.this);
 
                 long id = dbalumno.insertarContactos(
-                        txtnombre.getText().toString(),
+                        txtNombre.getText().toString(),
+                        txtApellido.getText().toString(),
                         txtTelefono.getText().toString(),
-                        txtCorreoElectronico.getText().toString());
+                        txtCorreoElectronico.getText().toString(),
+                        txtDireccion.getText().toString(),
+                        txtFechaNacimiento.getText().toString(),
+                        txtDni.getText().toString(),
+                        txtCarrera.getText().toString(),
+                        txtCiclo.getText().toString(),
+                        txtEstado.getText().toString());
 
                 if (id > 0) {
                     Toast.makeText(NuevoActivity.this, "REGISTRO GUARDADO", Toast.LENGTH_LONG).show();
@@ -48,8 +63,15 @@ public class NuevoActivity extends AppCompatActivity {
     }
 
     private void Limpiar() {
-        txtnombre.setText("");
+        txtNombre.setText("");
+        txtApellido.setText("");
         txtTelefono.setText("");
         txtCorreoElectronico.setText("");
+        txtDireccion.setText("");
+        txtFechaNacimiento.setText("");
+        txtDni.setText("");
+        txtCarrera.setText("");
+        txtCiclo.setText("");
+        txtEstado.setText("");
     }
 }
