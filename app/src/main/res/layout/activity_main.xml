@@ -25,6 +25,14 @@
         android:gravity="center"
         android:padding="32dp">
 
+        <ImageView
+            android:id="@+id/ivLogo"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginBottom="16dp"
+            android:contentDescription="@string/logo_senati_desc"
+            android:src="@drawable/logo_senati" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
