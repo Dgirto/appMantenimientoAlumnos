@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -18,7 +20,8 @@ public class NuevoActivity extends AppCompatActivity {
 
     // Asignar nuestras variables
     private EditText txtNombre, txtApellido, txtTelefono, txtCorreoElectronico, txtDireccion,
-            txtFechaNacimiento, txtDni, txtCarrera, txtCiclo, txtEstado;
+            txtFechaNacimiento, txtDni, txtCarrera;
+    private AutoCompleteTextView txtCiclo, txtEstado;
     private Button btnGuardar;
 
     @Override
@@ -44,6 +47,12 @@ public class NuevoActivity extends AppCompatActivity {
 
         // autoformatea la fecha a DD-MM-AAAA mientras el usuario escribe los numeros
         txtFechaNacimiento.addTextChangedListener(new FechaTextWatcher(txtFechaNacimiento));
+
+        // ciclo y estado son menus desplegables, el usuario solo elige una opcion
+        txtCiclo.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line,
+                getResources().getStringArray(R.array.ciclos_alumno)));
+        txtEstado.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line,
+                getResources().getStringArray(R.array.estados_alumno)));
 
         btnGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,8 +90,8 @@ public class NuevoActivity extends AppCompatActivity {
         txtFechaNacimiento.setText("");
         txtDni.setText("");
         txtCarrera.setText("");
-        txtCiclo.setText("");
-        txtEstado.setText("");
+        txtCiclo.setText("", false);
+        txtEstado.setText("", false);
     }
 
     // Va agregando los guiones automaticamente mientras el usuario escribe: DD-MM-AAAA

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="ciclos_alumno">
+        <item>I</item>
+        <item>II</item>
+        <item>III</item>
+        <item>IV</item>
+        <item>V</item>
+        <item>VI</item>
+    </string-array>
+
+    <string-array name="estados_alumno">
+        <item>Activo</item>
+        <item>Inactivo</item>
+        <item>Egresado</item>
+        <item>Retirado</item>
+    </string-array>
+</resources>
