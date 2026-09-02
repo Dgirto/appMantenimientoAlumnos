@@ -9,7 +9,7 @@
     <string name="hint_telefono">Telefono:</string>
     <string name="hint_correo_electronico">Correo Electronico:</string>
     <string name="hint_direccion">Direccion:</string>
-    <string name="hint_fecha_nacimiento">Fecha de Nacimiento:</string>
+    <string name="hint_fecha_nacimiento">Fecha de Nacimiento (DD-MM-AAAA):</string>
     <string name="hint_dni">DNI:</string>
     <string name="hint_carrera">Carrera:</string>
     <string name="hint_ciclo">Ciclo:</string>

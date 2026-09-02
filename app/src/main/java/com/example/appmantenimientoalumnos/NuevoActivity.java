@@ -3,6 +3,8 @@ package com.example.appmantenimientoalumnos;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -34,6 +36,9 @@ public class NuevoActivity extends AppCompatActivity {
         txtCiclo = findViewById(R.id.txtCiclo);
         txtEstado = findViewById(R.id.txtEstado);
         btnGuardar = findViewById(R.id.btnGuardar);
+
+        // autoformatea la fecha a DD-MM-AAAA mientras el usuario escribe los numeros
+        txtFechaNacimiento.addTextChangedListener(new FechaTextWatcher(txtFechaNacimiento));
 
         btnGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,5 +78,48 @@ public class NuevoActivity extends AppCompatActivity {
         txtCarrera.setText("");
         txtCiclo.setText("");
         txtEstado.setText("");
+    }
+
+    // Va agregando los guiones automaticamente mientras el usuario escribe: DD-MM-AAAA
+    private static class FechaTextWatcher implements TextWatcher {
+        private final EditText editText;
+        private boolean actualizando;
+
+        FechaTextWatcher(EditText editText) {
+            this.editText = editText;
+        }
+
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+            if (actualizando) {
+                return;
+            }
+
+            String soloDigitos = s.toString().replaceAll("[^\\d]", "");
+            if (soloDigitos.length() > 8) {
+                soloDigitos = soloDigitos.substring(0, 8);
+            }
+
+            StringBuilder formateado = new StringBuilder();
+            for (int i = 0; i < soloDigitos.length(); i++) {
+                if (i == 2 || i == 4) {
+                    formateado.append("-");
+                }
+                formateado.append(soloDigitos.charAt(i));
+            }
+
+            actualizando = true;
+            editText.setText(formateado.toString());
+            editText.setSelection(formateado.length());
+            actualizando = false;
+        }
     }
 }
