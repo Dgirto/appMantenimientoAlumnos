@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">AppMantenimientoAlumnos</string>
+
+    <string name="btn_crear_bd">CREAR BASE DE DATOS SQLITE</string>
+    <string name="btn_nuevo_registro">NUEVO REGISTRO</string>
+
+    <string name="hint_nombre">Nombre:</string>
+    <string name="hint_apellido">Apellido:</string>
+    <string name="hint_telefono">Telefono:</string>
+    <string name="hint_correo_electronico">Correo Electronico:</string>
+    <string name="hint_direccion">Direccion:</string>
+    <string name="hint_fecha_nacimiento">Fecha de Nacimiento:</string>
+    <string name="hint_dni">DNI:</string>
+    <string name="hint_carrera">Carrera:</string>
+    <string name="hint_ciclo">Ciclo:</string>
+    <string name="hint_estado">Estado:</string>
+    <string name="btn_guardar">GUARDAR REGISTRO</string>
 </resources>
