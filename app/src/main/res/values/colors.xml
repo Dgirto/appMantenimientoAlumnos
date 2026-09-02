@@ -2,4 +2,18 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="brand_primary">#1B5E8C</color>
+    <color name="brand_primary_dark">#0F3A57</color>
+    <color name="brand_on_primary">#FFFFFF</color>
+
+    <color name="brand_secondary">#2E9E8F</color>
+    <color name="brand_on_secondary">#FFFFFF</color>
+
+    <color name="brand_background">#F4F7F9</color>
+    <color name="brand_surface">#FFFFFF</color>
+    <color name="brand_outline">#D3DBE0</color>
+
+    <color name="brand_text_primary">#1C2933</color>
+    <color name="brand_text_secondary">#5C6B73</color>
 </resources>

@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.android.material.appbar.MaterialToolbar;
+
 import com.example.appmantenimientoalumnos.db.DbHelper;
 
 public class MainActivity extends AppCompatActivity {
@@ -22,6 +24,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        MaterialToolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         btnCrear = findViewById(R.id.btnCrear);
         btnNuevo = findViewById(R.id.btnNuevo);

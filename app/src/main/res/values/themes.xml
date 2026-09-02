@@ -2,8 +2,18 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.AppMantenimientoAlumnos" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/brand_primary</item>
+        <item name="colorPrimaryDark">@color/brand_primary_dark</item>
+        <item name="colorOnPrimary">@color/brand_on_primary</item>
+        <item name="colorSecondary">@color/brand_secondary</item>
+        <item name="colorOnSecondary">@color/brand_on_secondary</item>
+        <item name="android:windowBackground">@color/brand_background</item>
+        <item name="android:statusBarColor">@color/brand_primary_dark</item>
     </style>
 
     <style name="Theme.AppMantenimientoAlumnos" parent="Base.Theme.AppMantenimientoAlumnos" />
+
+    <style name="ToolbarText" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textColor">@color/brand_on_primary</item>
+    </style>
 </resources>

@@ -2,6 +2,10 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.AppMantenimientoAlumnos" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="colorPrimary">@color/brand_secondary</item>
+        <item name="colorOnPrimary">@color/brand_on_secondary</item>
+        <item name="colorSecondary">@color/brand_secondary</item>
+        <item name="colorOnSecondary">@color/brand_on_secondary</item>
+        <item name="android:statusBarColor">@color/brand_primary_dark</item>
     </style>
 </resources>

@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.material.appbar.MaterialToolbar;
+
 import com.example.appmantenimientoalumnos.db.DbAlumnos;
 
 public class NuevoActivity extends AppCompatActivity {
@@ -23,6 +25,9 @@ public class NuevoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nuevo);
+
+        MaterialToolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setNavigationOnClickListener(view -> finish());
 
         // añadiendo las variables a los elementos de la vista
         txtNombre = findViewById(R.id.txtNombre);
