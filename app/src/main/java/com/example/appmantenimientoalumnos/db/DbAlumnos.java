@@ -2,8 +2,13 @@ package com.example.appmantenimientoalumnos.db;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import androidx.annotation.Nullable;
+
+import com.example.appmantenimientoalumnos.model.Alumno;
+
+import java.util.ArrayList;
 
 public class DbAlumnos extends DbHelper {
 
@@ -37,9 +42,45 @@ public class DbAlumnos extends DbHelper {
 
             // nos va a regresar el id insertado
             id = db.insert(TABLE_ALUMNOS, null, values);
+            db.close();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
         return id;
+    }
+
+    public ArrayList<Alumno> mostrarAlumnos() {
+        ArrayList<Alumno> listaAlumnos = new ArrayList<>();
+        SQLiteDatabase db = getReadableDatabase();
+
+        Cursor cursor = db.rawQuery(
+                "SELECT id, nombre, apellido, telefono, correo_electronico, direccion, " +
+                        "fechaNacimiento, dni, carrera, ciclo, estado " +
+                        "FROM " + TABLE_ALUMNOS + " ORDER BY id DESC",
+                null
+        );
+
+        if (cursor.moveToFirst()) {
+            do {
+                Alumno alumno = new Alumno(
+                        cursor.getInt(0),
+                        cursor.getString(1),
+                        cursor.getString(2),
+                        cursor.getString(3),
+                        cursor.getString(4),
+                        cursor.getString(5),
+                        cursor.getString(6),
+                        cursor.getString(7),
+                        cursor.getString(8),
+                        cursor.getString(9),
+                        cursor.getString(10)
+                );
+                listaAlumnos.add(alumno);
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+        return listaAlumnos;
     }
 }
