@@ -3,7 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/menuNuevo"
-        android:title="Nuevo" />
+        android:id="@+id/menuAjustes"
+        android:title="@string/menu_ajustes"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menuAcercaDe"
+        android:title="@string/menu_acerca_de"
+        app:showAsAction="never" />
 
 </menu>

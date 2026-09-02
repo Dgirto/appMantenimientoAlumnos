@@ -13,6 +13,11 @@
     <string name="btn_crear_bd">Crear base de datos SQLite</string>
     <string name="btn_nuevo_registro">Nuevo registro</string>
 
+    <string name="menu_ajustes">Ajustes</string>
+    <string name="menu_acerca_de">Acerca de</string>
+    <string name="mensaje_en_construccion">Se sigue trabajando en esto. ¡Gracias!</string>
+    <string name="btn_entendido">Entendido</string>
+
     <string name="hint_nombre">Nombre</string>
     <string name="hint_apellido">Apellido</string>
     <string name="hint_telefono">Teléfono</string>

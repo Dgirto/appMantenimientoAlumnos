@@ -1,5 +1,6 @@
 package com.example.appmantenimientoalumnos;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -54,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    // creamos un menu (segunda forma de llegar a Nuevo Registro, ademas del boton)
+    // creamos un menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // "menu_principal" es el nombre del XML
@@ -65,11 +66,18 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.menuNuevo) {
-            nuevoRegistro();
+        if (id == R.id.menuAjustes || id == R.id.menuAcercaDe) {
+            mostrarEnConstruccion();
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void mostrarEnConstruccion() {
+        new AlertDialog.Builder(this)
+                .setMessage(R.string.mensaje_en_construccion)
+                .setPositiveButton(R.string.btn_entendido, null)
+                .show();
     }
 
     private void nuevoRegistro() {
