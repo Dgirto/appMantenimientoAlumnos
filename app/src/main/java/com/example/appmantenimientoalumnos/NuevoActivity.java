@@ -8,21 +8,21 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.appmantenimientoalumnos.db.Dbalumno;
+import com.example.appmantenimientoalumnos.db.DbAlumnos;
 
 public class NuevoActivity extends AppCompatActivity {
 
     // Asignar nuestras variables
     private EditText txtNombre, txtApellido, txtTelefono, txtCorreoElectronico, txtDireccion,
             txtFechaNacimiento, txtDni, txtCarrera, txtCiclo, txtEstado;
-    private Button btnGuarda;
+    private Button btnGuardar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nuevo);
 
-        // añadiendo las variables los elementos de la vista.
+        // añadiendo las variables a los elementos de la vista
         txtNombre = findViewById(R.id.txtNombre);
         txtApellido = findViewById(R.id.txtApellido);
         txtTelefono = findViewById(R.id.txtTelefono);
@@ -33,14 +33,14 @@ public class NuevoActivity extends AppCompatActivity {
         txtCarrera = findViewById(R.id.txtCarrera);
         txtCiclo = findViewById(R.id.txtCiclo);
         txtEstado = findViewById(R.id.txtEstado);
-        btnGuarda = findViewById(R.id.btnGuarda);
+        btnGuardar = findViewById(R.id.btnGuardar);
 
-        btnGuarda.setOnClickListener(new View.OnClickListener() {
+        btnGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Dbalumno dbalumno = new Dbalumno(NuevoActivity.this);
+                DbAlumnos dbAlumnos = new DbAlumnos(NuevoActivity.this);
 
-                long id = dbalumno.insertarContactos(
+                long id = dbAlumnos.insertarContactos(
                         txtNombre.getText().toString(),
                         txtApellido.getText().toString(),
                         txtTelefono.getText().toString(),
@@ -54,7 +54,7 @@ public class NuevoActivity extends AppCompatActivity {
 
                 if (id > 0) {
                     Toast.makeText(NuevoActivity.this, "REGISTRO GUARDADO", Toast.LENGTH_LONG).show();
-                    Limpiar();
+                    limpiar();
                 } else {
                     Toast.makeText(NuevoActivity.this, "ERROR AL GUARDAR REGISTRO", Toast.LENGTH_LONG).show();
                 }
@@ -62,7 +62,7 @@ public class NuevoActivity extends AppCompatActivity {
         });
     }
 
-    private void Limpiar() {
+    private void limpiar() {
         txtNombre.setText("");
         txtApellido.setText("");
         txtTelefono.setText("");

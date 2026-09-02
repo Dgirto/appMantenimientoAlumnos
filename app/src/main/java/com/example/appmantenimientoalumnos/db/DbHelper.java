@@ -5,14 +5,14 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 
-public class Dbhelper extends SQLiteOpenHelper {
+public class DbHelper extends SQLiteOpenHelper {
 
     // definimos variables con las cuales vamos a controlar los cambios en la base de datos
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NOMBRE = "appmantenimientoalumnos.db";
     public static final String TABLE_ALUMNOS = "alumnos";
 
-    public Dbhelper(@Nullable Context context) {
+    public DbHelper(@Nullable Context context) {
         super(context, DATABASE_NOMBRE, null, DATABASE_VERSION);
     }
 

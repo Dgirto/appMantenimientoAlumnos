@@ -11,11 +11,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.appmantenimientoalumnos.db.Dbhelper;
+import com.example.appmantenimientoalumnos.db.DbHelper;
 
 public class MainActivity extends AppCompatActivity {
 
     private Button btnCrear;
+    private Button btnNuevo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,25 +24,32 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         btnCrear = findViewById(R.id.btnCrear);
+        btnNuevo = findViewById(R.id.btnNuevo);
 
         // Para que detecte en el momento que hagamos clic en el boton
-        // OnClickListener inplementando el metodo
         btnCrear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // llamamos a nuestra clase dbHelper
-                Dbhelper dbHelper = new Dbhelper(MainActivity.this);
+                // llamamos a nuestra clase DbHelper
+                DbHelper dbHelper = new DbHelper(MainActivity.this);
                 SQLiteDatabase db = dbHelper.getWritableDatabase();
                 if (db != null) {
                     Toast.makeText(MainActivity.this, "BASE DE DATOS CREADA", Toast.LENGTH_LONG).show();
                 } else {
-                    Toast.makeText(MainActivity.this, "ERRROR AL CREAR BASE DE DATOS", Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity.this, "ERROR AL CREAR BASE DE DATOS", Toast.LENGTH_LONG).show();
                 }
+            }
+        });
+
+        btnNuevo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                nuevoRegistro();
             }
         });
     }
 
-    // creamos un menu
+    // creamos un menu (segunda forma de llegar a Nuevo Registro, ademas del boton)
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // "menu_principal" es el nombre del XML
@@ -49,7 +57,6 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    // creamos otro metodo
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -61,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void nuevoRegistro() {
-        Intent intent = new Intent(this, NuevoActivity.class);
+        Intent intent = new Intent(MainActivity.this, NuevoActivity.class);
         startActivity(intent);
     }
 }

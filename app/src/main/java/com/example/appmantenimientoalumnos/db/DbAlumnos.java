@@ -5,11 +5,11 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import androidx.annotation.Nullable;
 
-public class Dbalumno extends Dbhelper {
+public class DbAlumnos extends DbHelper {
 
     Context context;
 
-    public Dbalumno(@Nullable Context context) {
+    public DbAlumnos(@Nullable Context context) {
         super(context);
         this.context = context;
     }
@@ -19,7 +19,7 @@ public class Dbalumno extends Dbhelper {
                                    String ciclo, String estado) {
         long id = 0;
         try {
-            Dbhelper dbHelper = new Dbhelper(context);
+            DbHelper dbHelper = new DbHelper(context);
             SQLiteDatabase db = dbHelper.getWritableDatabase();
 
             // agregamos la funcion insertar los registros
